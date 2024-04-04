@@ -3,14 +3,13 @@
 
 name: Build and deploy PHP app to Azure Web App - commp3975project-mze
 
+defaults:
+  run:
+    working-directory: laravel-backend
 on:
   push:
     branches:
       - main
-    # paths:
-    #   - 'laravel-backend/*'
-  workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
