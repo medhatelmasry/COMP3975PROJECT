@@ -51,6 +51,7 @@ jobs:
         working-directory: laravel-backend
         run: |
           pwd
+          ls
           php artisan migrate --force
 
       - name: give full permission to database folder (NEW)
