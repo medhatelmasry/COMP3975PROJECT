@@ -16,7 +16,7 @@ jobs:
     defaults:
       run:
         # Set the default working directory to the repository root (New)
-        # Note that run: zip ../release.zip 
+        # Note further down: zip ../release.zip 
         working-directory: ./laravel-backend
 
     steps:
@@ -34,7 +34,6 @@ jobs:
           files: 'laravel-backend/composer.json'
 
       - name: Run composer install if composer.json exists
-        #working-directory: laravel-backend
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
           pwd
@@ -42,7 +41,6 @@ jobs:
         
 
       - name: give full permission to storage folder (NEW)
-        #working-directory: laravel-backend
         run: |
           echo "++++ What is the current directory?"
           pwd
@@ -52,7 +50,6 @@ jobs:
           chmod -R 777 storage
           
       - name: migrate database (NEW)
-          #working-directory: laravel-backend
         run: |
           pwd
           ls
@@ -66,14 +63,12 @@ jobs:
           ls database
           echo "++++ Give full permission to database folder"
           chmod -R 777 database
-        #working-directory: laravel-backend
 
       - name: Zip artifact for deployment
         run: |
           pwd
           ls
           zip ../release.zip ./* -r
-        #working-directory: laravel-backend
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
