@@ -43,8 +43,10 @@ jobs:
         working-directory: laravel-backend
 
       - name: migrate database (NEW)
-        run: php artisan migrate --force
         working-directory: laravel-backend
+        run: |
+          pwd
+          php artisan migrate --force
 
       - name: give full permission to database folder (NEW)
         run: chmod -R 777 database
