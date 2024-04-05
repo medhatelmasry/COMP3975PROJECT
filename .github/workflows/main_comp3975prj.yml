@@ -43,7 +43,9 @@ jobs:
 
       - name: give full permission to storage folder (NEW)
         working-directory: laravel-backend
-        run: chmod -R 777 storage
+        run: |
+          pwd
+          chmod -R 777 storage
 
       - name: migrate database (NEW)
         working-directory: laravel-backend
