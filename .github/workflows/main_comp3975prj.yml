@@ -44,12 +44,20 @@ jobs:
       - name: give full permission to storage folder (NEW)
         #working-directory: laravel-backend
         run: |
+          echo "++++ What is the current directory?"
           pwd
+          echo "++++ What is in the storage folder?"
+          ls storage
+          echo "++++ Give full permission to storage folder"
           chmod -R 777 storage
           
       - name: give full permission to database folder (NEW)
         run: |
+          echo "++++ What is the current directory?"
           pwd
+          echo "++++ What is in the database folder?"
+          ls database
+          echo "++++ Give full permission to database folder"
           chmod -R 777 database
         #working-directory: laravel-backend
 
