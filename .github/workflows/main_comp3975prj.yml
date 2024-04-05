@@ -56,7 +56,7 @@ jobs:
         run: |
           pwd
           ls
-          php artisan migrate --force
+          php artisan migrate --force --seed
   
       - name: give full permission to database folder (NEW)
         run: |
