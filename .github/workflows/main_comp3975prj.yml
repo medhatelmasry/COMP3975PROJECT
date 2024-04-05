@@ -51,6 +51,13 @@ jobs:
           echo "++++ Give full permission to storage folder"
           chmod -R 777 storage
           
+      - name: migrate database (NEW)
+          #working-directory: laravel-backend
+        run: |
+          pwd
+          ls
+          php artisan migrate --force
+  
       - name: give full permission to database folder (NEW)
         run: |
           echo "++++ What is the current directory?"
@@ -60,13 +67,6 @@ jobs:
           echo "++++ Give full permission to database folder"
           chmod -R 777 database
         #working-directory: laravel-backend
-
-      - name: migrate database (NEW)
-        #working-directory: laravel-backend
-        run: |
-          pwd
-          ls
-          php artisan migrate --force
 
       - name: Zip artifact for deployment
         run: |
