@@ -34,13 +34,16 @@ jobs:
           files: 'composer.json'
 
       - name: Run composer install if composer.json exists
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
         working-directory: laravel-backend
+        if: steps.check_files.outputs.files_exists == 'true'
+        run: |
+          pwd
+          composer validate --no-check-publish && composer install --prefer-dist --no-progress
+        
 
       - name: give full permission to storage folder (NEW)
-        run: chmod -R 777 storage
         working-directory: laravel-backend
+        run: chmod -R 777 storage
 
       - name: migrate database (NEW)
         working-directory: laravel-backend
