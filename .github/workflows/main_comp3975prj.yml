@@ -16,7 +16,7 @@ jobs:
       run:
         # Set the default working directory to the repository root (New)
         # Note that run: zip ../release.zip 
-        working-directory: ./laravel-backend
+        working-directory: laravel-backend
 
     steps:
       - uses: actions/checkout@v4
